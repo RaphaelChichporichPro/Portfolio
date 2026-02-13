@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Raphael Chichportich</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">RAPHAEL.C</div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projets.html" class="active">Projets</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Mes Réalisations</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <h3><i class="fas fa-users-cog"></i> Gestion de Groupes (SAE)</h3>
+                <p>
+                    Application complète pour créer des groupes de TP/TD. 
+                    <br><strong>Tech :</strong> Java (App Bureau), PHP (Web MVC), API REST, SQL.
+                    <br>Gestion des contraintes (notes, covoiturage, mixité) et export CSV.
+                </p>
+                <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="https://github.com/ton-pseudo/projet-sae" target="_blank" class="btn">
+                        <i class="fab fa-github"></i> Voir le code
+                    </a>
+                    <a href="assets/docs/sujet-sae.pdf" class="btn-outline" download>
+                        <i class="fas fa-file-pdf"></i> Télécharger le sujet
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-shopping-cart"></i> Site E-commerce</h3>
+                <p>
+                    Développement d'une boutique en ligne from scratch.
+                    <br><strong>Tech :</strong> PHP, MySQL, JavaScript.
+                    <br>Fonctionnalités : Panier dynamique, espace client, back-office administration.
+                </p>
+                <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="#" class="btn">
+                        <i class="fab fa-github"></i> Voir le code
+                    </a>
+                    <a href="#" class="btn-outline" onclick="alert('Ajoute le fichier PDF dans assets/docs/ !')">
+                        <i class="fas fa-file-pdf"></i> Télécharger le sujet
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-cloud-sun-rain"></i> Dashboard Météo</h3>
+                <p>
+                    Application web de prévisions météorologiques en temps réel.
+                    <br><strong>Tech :</strong> HTML, CSS, JS (Fetch API).
+                    <br>Appels asynchrones à une API externe (OpenWeatherMap) et géolocalisation.
+                </p>
+                <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="#" class="btn">
+                        <i class="fab fa-github"></i> Voir le code
+                    </a>
+                    <a href="#" class="btn-outline" onclick="alert('Ajoute le fichier PDF dans assets/docs/ !')">
+                        <i class="fas fa-file-pdf"></i> Télécharger le sujet
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

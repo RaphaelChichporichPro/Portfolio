@@ -1,0 +1,181 @@
+/* --- 1. VARIABLES & RESET --- */
+:root {
+    --bg-color: #0f172a;      /* Bleu nuit très sombre */
+    --text-color: #e2e8f0;    /* Blanc cassé */
+    --accent-color: #38bdf8;  /* Bleu néon */
+    --accent-hover: #0ea5e9;
+    --glass-bg: rgba(15, 23, 42, 0.8);
+    --card-bg: #1e293b;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- 2. NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--accent-color); letter-spacing: 2px; }
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* EFFET HOVER SUR LE MENU */
+nav a.active, nav a:hover { 
+    color: var(--accent-color); 
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.6); /* Petite lueur néon */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px;
+    bottom: 0; left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s;
+    box-shadow: 0 0 10px var(--accent-color); /* Ligne lumineuse */
+}
+nav a:hover::after { width: 100%; }
+
+/* --- 3. LAYOUT & TEXTES --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    min-height: 80vh;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+h2 { font-size: 2.5rem; color: white; margin-bottom: 40px; border-left: 5px solid var(--accent-color); padding-left: 20px; }
+p { font-size: 1.1rem; color: #94a3b8; margin-bottom: 30px; max-width: 600px; }
+
+/* --- 4. BOUTONS (Effets renforcés) --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--accent-color);
+    color: #0f172a;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    border: 2px solid var(--accent-color); /* Pour éviter le décalage au hover */
+}
+
+.btn:hover { 
+    transform: translateY(-3px) scale(1.05); /* Grossit légèrement */
+    background: var(--accent-hover);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.8); /* Grosse lueur */
+    color: white;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    box-shadow: none;
+}
+.btn-outline:hover { 
+    background: rgba(56, 189, 248, 0.1); 
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    transform: translateY(-3px);
+}
+
+/* --- 5. GRILLES & CARTES --- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet quand on passe sur une carte */
+.card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--accent-color); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.card h3 { color: var(--accent-color); margin-bottom: 10px; }
+
+/* --- 6. TIMELINE --- */
+.timeline-item {
+    border-left: 2px solid var(--accent-color);
+    padding-left: 30px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.timeline-item::before {
+    content: '';
+    width: 16px; height: 16px;
+    background: var(--bg-color);
+    border: 2px solid var(--accent-color);
+    position: absolute;
+    left: -9px; top: 5px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+/* Le point s'allume au survol */
+.timeline-item:hover::before {
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+.date { font-size: 0.9rem; color: var(--accent-color); font-weight: bold; margin-bottom: 5px; display: block; }
+
+/* --- 7. ANIMATIONS JS --- */
+/* Typing Effect */
+.typing-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: var(--accent-color);
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Scroll Reveal */
+.hidden { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+.visible { opacity: 1; transform: translateY(0); }
+
+/* --- 8. RESPONSIVE --- */
+@media (max-width: 768px) {
+    nav { flex-direction: column; gap: 15px; }
+    nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    h1 { font-size: 2.5rem; }
+}
