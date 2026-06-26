@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (typingElement) {
         // J'ai mis à jour les mots selon ton CV
-        const words = ["Développeur", "Étudiant", "Passionné", "Curieux"];
+        const words = ["Développeur", "Étudiant", "Passionné"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -53,4 +53,37 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.add('hidden'); // Ajoute la classe qui cache l'élément
         revealObserver.observe(el);
     });
+    // --- 3. GESTION DU MODE CLAIR / SOMBRE ---
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const currentTheme = localStorage.getItem('theme');
+
+    // Vérifier si l'utilisateur a déjà activé le mode clair lors d'une visite précédente
+    if (currentTheme === 'light') {
+        document.body.classList.add('light-mode');
+        themeIcon.classList.replace('fas', 'far'); // Change l'icône en soleil vide ou lune selon tes préférences
+        themeIcon.classList.replace('fa-sun', 'fa-moon'); 
+    }
+
+    // Écouter le clic sur le bouton
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            
+            // On vérifie si on est en mode clair maintenant
+            if (document.body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fas', 'far');
+                themeIcon.classList.replace('fa-sun', 'fa-moon'); // Icône Lune pour repasser au mode sombre
+            } else {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('far', 'fas');
+                themeIcon.classList.replace('fa-moon', 'fa-sun'); // Icône Soleil pour repasser au mode clair
+            }
+            
+            // Petit effet d'animation au clic
+            themeToggleBtn.style.transform = 'scale(1.2)';
+            setTimeout(() => themeToggleBtn.style.transform = 'scale(1)', 200);
+        });
+    }
 });

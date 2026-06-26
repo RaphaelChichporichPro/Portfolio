@@ -8,7 +8,20 @@
     --card-bg: #1e293b;
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+/* --- VARIABLES POUR LE MODE CLAIR --- */
+body.light-mode {
+    --bg-color: #f8fafc;       /* Gris très clair/blanc */
+    --text-color: #0f172a;     /* Bleu nuit (ton ancien fond devient ton texte) */
+    --card-bg: #ffffff;        /* Cartes blanches */
+    --glass-bg: rgba(248, 250, 252, 0.8);
+    --accent-color: #0284c7;   /* Un bleu un peu plus sombre pour rester lisible sur fond blanc */
+    --accent-hover: #0369a1;
+}
 
+/* Ajustement pour que les titres de sections restent bien sombres en mode clair */
+body.light-mode h2 {
+    color: #0f172a;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
